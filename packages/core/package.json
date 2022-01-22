@@ -4,12 +4,20 @@
   "private": true,
   "main": "out/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "dependencies": {
+    "@nestjs/common": "^8.2.6",
+    "@nestjs/core": "^8.2.6",
+    "@nestjs/platform-fastify": "^8.2.6",
     "tsconfig": "*"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.10",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.3",
     "typescript": "^4.5.5"
   }
 }

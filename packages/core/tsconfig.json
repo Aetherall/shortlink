@@ -2,7 +2,9 @@
   "extends": "tsconfig/tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./out"
+    "outDir": "./out",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["src"]
 }

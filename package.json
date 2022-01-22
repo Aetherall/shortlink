@@ -7,9 +7,10 @@
     "tools/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
+    "build": "FORCE_COLOR=1 turbo run build",
+    "test": "FORCE_COLOR=1 turbo run test",
+    "dev": "FORCE_COLOR=1 turbo run dev --parallel",
+    "lint": "FORCE_COLOR=1 turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
           "tsconfig.tsbuildinfo"
         ]
       },
+      "test": {},
       "lint": {
         "outputs": []
       },
