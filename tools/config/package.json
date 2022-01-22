@@ -1,0 +1,11 @@
+{
+  "name": "config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    ".eslintrc"
+  ],
+  "dependencies": {
+    "eslint-config-prettier": "^8.3.0"
+  }
+}
