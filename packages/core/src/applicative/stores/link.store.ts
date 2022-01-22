@@ -1,4 +1,7 @@
+import { LongLink } from "../../domain/long-link";
+import { ShortLink } from "../../domain/short-link";
+
 export abstract class LinkStore {
-  abstract get(short: string): Promise<string | undefined>;
-  abstract set(short: string, long: string): Promise<void>;
+  abstract get(short: ShortLink): Promise<LongLink | undefined>;
+  abstract set(short: ShortLink, long: LongLink): Promise<void>;
 }

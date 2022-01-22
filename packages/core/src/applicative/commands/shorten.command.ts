@@ -1,8 +1,9 @@
+import { LongLink } from "../../domain/long-link";
 import { LinkStore } from "../stores/link.store";
 import { Shortener } from "../tools/shortener";
 
 export class ShortenCommand {
-  constructor(public readonly long: string) {}
+  constructor(public readonly long: LongLink) {}
 }
 
 export class ShortenCommandHandler {
