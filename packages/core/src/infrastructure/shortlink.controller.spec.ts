@@ -1,4 +1,4 @@
-import { INestApplication } from "@nestjs/common";
+import { HttpStatus, INestApplication } from "@nestjs/common";
 import { FastifyAdapter } from "@nestjs/platform-fastify";
 import { Test, TestingModule } from "@nestjs/testing";
 import request from "supertest";
@@ -31,5 +31,20 @@ describe("Shortlink", () => {
     expect(body).toEqual({
       short: "EAaArVRs5qV39C9S3zO0z9ynVoWeZkuNfeMpsVDQnOk=",
     });
+  });
+
+  it("should redirect to the corresponding long link", async () => {
+    const { redirect, headers } = await request(app.getHttpServer())
+      .get("/EAaArVRs5qV39C9S3zO0z9ynVoWeZkuNfeMpsVDQnOk=")
+      .expect(HttpStatus.FOUND);
+
+    expect(headers.location).toEqual("https://example.com");
+    expect(redirect).toEqual(true);
+  });
+
+  it("should return 404 NOT FOUND if there is no matching link", async () => {
+    await request(app.getHttpServer())
+      .get("/not-existing")
+      .expect(HttpStatus.NOT_FOUND);
   });
 });
